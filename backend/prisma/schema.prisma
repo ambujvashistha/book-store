@@ -14,13 +14,26 @@ datasource db {
 }
 
 model Books {
-  book_id   Int    @id @default(autoincrement())
-  book_name String
-  author_id Int
+  book_id Int    @id @default(autoincrement())
+  title   String
+  author  String
+  ISBN    String
+  summary String
+  url     String
 }
 
 model Authors {
-  author_id   Int    @id @default(autoincrement())
-  author_name String
-  author      String
+  author_id     Int      @id @default(autoincrement())
+  first_name    String
+  family_name   String
+  date_of_birth DateTime
+  date_of_death DateTime
+  url           String
+  lifespan      String
+}
+
+model Genres {
+  genre_id Int    @id @default(autoincrement())
+  name     String
+  url      String
 }
