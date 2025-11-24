@@ -16,5 +16,11 @@ datasource db {
 model Books {
   book_id   Int    @id @default(autoincrement())
   book_name String
-  author    String
+  author_id Int
+}
+
+model Authors {
+  author_id   Int    @id @default(autoincrement())
+  author_name String
+  author      String
 }
