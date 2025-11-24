@@ -37,3 +37,10 @@ model Genres {
   name     String
   url      String
 }
+
+model Maps {
+  map_id    Int @id @default(autoincrement())
+  book_id   Int
+  genre_id  Int
+  author_id Int
+}
