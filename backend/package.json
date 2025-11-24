@@ -11,6 +11,6 @@
   "description": "",
   "dependencies": {
     "express": "^5.1.0",
-    "prisma": "^7.0.0"
+    "prisma": "^5.16.0"
   }
 }
