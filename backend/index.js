@@ -15,12 +15,17 @@ app.post("/api/v1/genres", async (req, res) => {
   const body = req.body;
   console.log(body);
 
-  new_genre = await prisma.genre.create({
+  const new_genre = await prisma.genre.create({
     data: body,
   });
   res.status(201).json(new_genre);
 });
 
+app.get("/api/v1/genres", async (req, res) => {
+  const genre = await prisma.genre.findMany();
+  console.log("genre hi kehde");
+  res.status(200).json(genre);
+});
 app.post("/api/v1/books", async (req, res) => {
   const body = req.body;
   console.log(body);
