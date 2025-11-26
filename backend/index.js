@@ -11,6 +11,16 @@ app.get("/", (req, res) => {
   res.send("OK");
 });
 
+app.post("/api/v1/genres", async (req, res) => {
+  const body = req.body;
+  console.log(body);
+
+  new_genre = await prisma.genre.create({
+    data: body,
+  });
+  res.status(201).json(new_genre);
+});
+
 app.post("/api/v1/books", async (req, res) => {
   const body = req.body;
   console.log(body);
