@@ -26,6 +26,18 @@ app.get("/api/v1/genres", async (req, res) => {
   console.log("genre hi kehde");
   res.status(200).json(genre);
 });
+
+app.patch("/api/v1/genres/:genID", async (req, res) => {
+  const genID = req.params.genID;
+  const new_data = req.body;
+  const updated = await prisma.genre.update({
+    where: { id: Number(genID) },
+    data: new_data,
+  });
+
+  res.status(200).json(updated);
+});
+
 app.post("/api/v1/books", async (req, res) => {
   const body = req.body;
   console.log(body);
