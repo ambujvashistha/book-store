@@ -38,6 +38,14 @@ app.patch("/api/v1/genres/:genID", async (req, res) => {
   res.status(200).json(updated);
 });
 
+app.delete("/api/v1/genres/:delID", async (req, res) => {
+  const delID = req.params.delID;
+
+  const deleted = await prisma.genre.delete({
+    where: { id: Number(delID) },
+  });
+  res.status(204).send("ok");
+});
 app.post("/api/v1/books", async (req, res) => {
   const body = req.body;
   console.log(body);
